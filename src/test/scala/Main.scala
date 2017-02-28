@@ -4,4 +4,6 @@ import TestFixtures._
 
 object Main extends App {
   println(boundingBox(simpleLocation))
+  //println(boundingBox(simpleEllipse))
+
 }
