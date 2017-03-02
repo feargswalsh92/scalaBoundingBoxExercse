@@ -10,7 +10,7 @@ object TestFixtures {
 
   val simpleLocation = Location(70, 30, Rectangle(80, 120))
 
-  //val basicGroup = Group(Ellipse(50, 30), Rectangle(20, 40))
+  val basicGroup = Group(Ellipse(50, 30), Rectangle(20, 40))
 
 
   //

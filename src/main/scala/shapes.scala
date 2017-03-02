@@ -13,7 +13,8 @@ case class Location(x: Int, y: Int, shape: Shape) extends Shape {
 
 case class Ellipse(minor: Int,major: Int) extends Shape
 
-//case class basicGroup(Group(ellipse: Ellipse, rectangle: Rectangle))
+
+case class basicGroup(ellipse: Ellipse, rectangle: Rectangle) extends Shape
 
 
 
