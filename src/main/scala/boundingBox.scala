@@ -16,8 +16,14 @@ object boundingBox {
 
       ///recursively
       Location(minX,minY, Rectangle(maxX - minX,maxY - minY))
-  }
 
+  }
+    case Location(x,y,s) => {
+        val bBox = apply(s)
+        Location(x + bBox.x,y + bBox.y, bBox.shape)
+
+
+    }
       //nested case statement
 
 
@@ -30,10 +36,7 @@ object boundingBox {
       //a location
 
     //receiving error requiring me to pass a locaiton
-    case Location() => {
-      Location(0, 0, Rectangle(0, 0))
 
-    }
 
     // not yet implemented
   }
