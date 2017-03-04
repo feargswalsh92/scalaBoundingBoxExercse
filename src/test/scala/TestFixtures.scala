@@ -2,7 +2,7 @@ package edu.luc.cs.laufer.cs372.shapes
 
 object TestFixtures {
 
-  // TODO comment these fixtures back in after adding the required case classes
+  // DONE comment these fixtures back in after adding the required case classes
   val simpleEllipse = Ellipse(50, 30)
 
   val simpleRectangle = Rectangle(80, 120)
@@ -16,7 +16,7 @@ object TestFixtures {
   //
     val simpleGroup = Group(
       Location(200, 100, Ellipse(50, 30)),
-  	Location(400, 300, Rectangle(100, 50))
+  	  Location(400, 300, Rectangle(100, 50))
     )
 
     val complexGroup =

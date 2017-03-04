@@ -1,13 +1,13 @@
 package edu.luc.cs.laufer.cs372.shapes
 
-// TODO: implement this behavior
+// DONE: implement this behavior
 
-object boundingBox {
-  def apply(s: Shape): Location = s match {
+object behaviours {
+  def boundingBox(s: Shape): Location = s match {
     case Rectangle(_, _) => Location(0, 0, s)
     case Ellipse(min, maj) => Location(0 - min, 0 - maj, Rectangle(2 * min, 2 * maj))
-    case Group(shapes @ _*) => {
-      val bBoxes = shapes.map(s => apply(s))
+    case Group(shapes@_*) => {
+      val bBoxes = shapes.map(s => boundingBox(s))
       val minX = bBoxes.map(b => b.x).min
       val maxX = bBoxes.map(b => b.x + b.shape.asInstanceOf[Rectangle].width).max
       val minY = bBoxes.map(b => b.y).min
@@ -15,15 +15,27 @@ object boundingBox {
       //locationsList foldLeft
 
       ///recursively
-      Location(minX,minY, Rectangle(maxX - minX,maxY - minY))
+      Location(minX, minY, Rectangle(maxX - minX, maxY - minY))
 
-  }
-    case Location(x,y,s) => {
-        val bBox = apply(s)
-        Location(x + bBox.x,y + bBox.y, bBox.shape)
+    }
+    case Location(x, y, s) => {
+      val bBox = boundingBox(s)
+      Location(x + bBox.x, y + bBox.y, bBox.shape)
 
 
     }
+  }
+
+  def size(s:Shape): Int = s match {
+
+    case Rectangle(_,_) => 1
+    case Ellipse(min,maj) => 1
+    case Location(x,y,s) => size(s)
+    case Group(shapes @_*) => 
+
+
+
+  }
       //nested case statement
 
 
@@ -39,5 +51,7 @@ object boundingBox {
 
 
     // not yet implemented
-  }
+
+
+
 }
