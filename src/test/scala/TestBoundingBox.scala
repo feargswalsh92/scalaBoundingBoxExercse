@@ -28,6 +28,12 @@ class TestBoundingBox extends FunSuite {
 
     }
 
+    def testHeight(description: String, s: Shape, retHeight: Int) = {
+      test(description)  {
+        val h = height(s)
+        assert(h=== retHeight)
+      }
+    }
 
   }
 
@@ -46,6 +52,12 @@ class TestBoundingBox extends FunSuite {
   testSize("simple location size",simpleLocation,1)
   testSize("simple group size",simpleGroup,2)
   testSize("complex group size",complexGroup,5)
+
+  testSize("simple ellipse height",simpleEllipse,1)
+  testSize("simple rectangle height",simpleRectangle,1)
+  testSize("simple location height",simpleLocation,1)
+  testSize("simple group height",simpleGroup,3)
+  testSize("complex group height",complexGroup,6)
 
   //
 }

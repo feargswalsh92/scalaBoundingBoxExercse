@@ -1,5 +1,7 @@
 package edu.luc.cs.laufer.cs372.shapes
 
+//
+// import  Shape._
 // DONE: implement this behavior
 
 object behaviours {
@@ -33,12 +35,30 @@ object behaviours {
     case Location(x,y,s) => size(s)
     case Group(shapes @_*) => {
       val shapesList = shapes
+      print(shapesList)
       shapesList.foldLeft(0)((a,s1) => size(s1)+a)
     }
-
+//found foldLeft statement here : https://github.com/rickschmidt/shapes-scala/blob/master/src/edu/luc/cs/laufer/cs473/shapes/BoundingBox.scala#L58
 
 
   }
+
+  def height(s:Shape): Int = s match {
+    case Rectangle(_, _) => 1
+    case Ellipse(min, maj) => 1
+    case Location(x, y, s) => 1 + math.max(x,y)
+    //case Group(shapes @_*) => {
+    case _ => 1
+
+  }
+
+//      val shapesList = shapes
+//      shapesList.foldLeft(0)((a,s1) => math.max()
+
+   //
+
+
+
       //nested case statement
 
 
