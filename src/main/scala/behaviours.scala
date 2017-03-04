@@ -31,7 +31,10 @@ object behaviours {
     case Rectangle(_,_) => 1
     case Ellipse(min,maj) => 1
     case Location(x,y,s) => size(s)
-    case Group(shapes @_*) => 
+    case Group(shapes @_*) => {
+      val shapesList = shapes
+      shapesList.foldLeft(0)((a,s1) => size(s1)+a)
+    }
 
 
 
