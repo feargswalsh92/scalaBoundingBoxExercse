@@ -41,7 +41,8 @@ class TestBoundingBox extends FunSuite {
   //bounding box
   testBoundingBox("simple ellipse", simpleEllipse, -50, -30, 100, 60)
   testBoundingBox("simple rectangle", simpleRectangle, 0, 0, 80, 120) //orig
-  testBoundingBox("simple location", simpleLocation, 70, 30, 80, 120) //origtestBoundingBox("basic group", basicGroup, -50, -30, 100, 70)
+  testBoundingBox("simple location", simpleLocation, 70, 30, 80, 120) //orig
+  testBoundingBox("basic group", basicGroup, -50, -30, 100, 70)
   testBoundingBox("simple group", simpleGroup, 150, 70, 350, 280)
   testBoundingBox("complex group", complexGroup, 30, 60, 470, 320)
 
@@ -50,12 +51,14 @@ class TestBoundingBox extends FunSuite {
   testSize("simple ellipse size",simpleEllipse,1)
   testSize("simple rectangle size",simpleRectangle,1)
   testSize("simple location size",simpleLocation,1)
+  testSize("basic group size", basicGroup, 2)
   testSize("simple group size",simpleGroup,2)
   testSize("complex group size",complexGroup,5)
 
   testSize("simple ellipse height",simpleEllipse,1)
   testSize("simple rectangle height",simpleRectangle,1)
   testSize("simple location height",simpleLocation,1)
+  testSize("basic group height", basicGroup, 2)
   testSize("simple group height",simpleGroup,3)
   testSize("complex group height",complexGroup,6)
 

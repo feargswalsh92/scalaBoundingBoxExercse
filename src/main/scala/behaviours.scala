@@ -35,7 +35,7 @@ object behaviours {
     case Location(x,y,s) => size(s)
     case Group(shapes @_*) => {
       val shapesList = shapes
-      print(shapesList)
+     // print(shapesList)
       shapesList.foldLeft(0)((a,s1) => size(s1)+a)
     }
 //found foldLeft statement here : https://github.com/rickschmidt/shapes-scala/blob/master/src/edu/luc/cs/laufer/cs473/shapes/BoundingBox.scala#L58
@@ -47,7 +47,13 @@ object behaviours {
     case Rectangle(_, _) => 1
     case Ellipse(min, maj) => 1
     case Location(x, y, s) => 1 + math.max(x,y)
-    //case Group(shapes @_*) => {
+
+    case Group(shapes @_*) => {
+    //  val shapesList = shapes
+
+      1+ math.max(height())
+      //logic
+    }
     case _ => 1
 
   }
