@@ -7,7 +7,7 @@ import TestFixtures._
 
 class TestBoundingBox extends FunSuite {
 
-  def testBoundingBox(description: String, s: Shape, x: Int, y: Int, width: Int, height: Int) = {
+  def testBoundingBox(description: String, s:Shape, x: Int, y: Int, width: Int, height: Int) = {
     test(description) {
       val b = behaviours.boundingBox(s)
       val r = b.shape.asInstanceOf[Rectangle]
@@ -19,6 +19,20 @@ class TestBoundingBox extends FunSuite {
     }
   }
 
+  def testScale(description: String,s: Shape,factor:Int, expectedResultShape: Shape) = {
+    test(description) {
+
+      val scaledShape = behaviours.scale(s,factor)
+
+
+      assert(scaledShape === expectedResultShape)
+
+    }
+
+  }
+
+
+
   def testSize(description: String, s: Shape, retSize: Int) = {
     test(description) {
 
@@ -27,7 +41,7 @@ class TestBoundingBox extends FunSuite {
 
 
     }
-
+  }
     def testHeight(description: String, s: Shape, retHeight: Int) = {
       test(description)  {
         val h = height(s)
@@ -35,7 +49,11 @@ class TestBoundingBox extends FunSuite {
       }
     }
 
-  }
+
+  testScale("simple ellipse scaled",simpleEllipse,2,ellipseByTwo)
+  testScale("simple rectangle scaled",simpleRectangle,2,simpleRectangleByTwo)
+  testScale("simple location scaled",simpleLocation,2,simpleLocationByTwo)
+
 
   // DONE comment these tests back in
   //bounding box
@@ -55,12 +73,16 @@ class TestBoundingBox extends FunSuite {
   testSize("simple group size",simpleGroup,2)
   testSize("complex group size",complexGroup,5)
 
-  testSize("simple ellipse height",simpleEllipse,1)
-  testSize("simple rectangle height",simpleRectangle,1)
-  testSize("simple location height",simpleLocation,1)
-  testSize("basic group height", basicGroup, 2)
-  testSize("simple group height",simpleGroup,3)
-  testSize("complex group height",complexGroup,6)
+  testHeight("simple ellipse height",simpleEllipse,1)
+  testHeight("simple rectangle height",simpleRectangle,1)
+  testHeight("simple location height",simpleLocation,2)
+  testHeight("basic group height", basicGroup, 2)
+  testHeight("simple group height",simpleGroup,3)
+  testHeight("complex group height",complexGroup,6)
+
+
+
+
 
   //
 }

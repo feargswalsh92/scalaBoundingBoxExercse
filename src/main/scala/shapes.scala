@@ -22,6 +22,9 @@ case class Ellipse(minor: Int,major: Int) extends Shape {
 
 
 case class Group(shapes: Shape*) extends Shape
+{
+  //add validitiy checking
+}
 
 
 //add valididity checking

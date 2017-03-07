@@ -10,6 +10,15 @@ object TestFixtures {
 
   val simpleLocation = Location(70, 30, Rectangle(80, 120))
 
+  val ellipseByTwo = Ellipse(100,60)
+
+
+  val simpleRectangleByTwo = Rectangle(160,240)
+
+  val simpleLocationByTwo = Location(140,60,Rectangle(160,240))
+
+
+
   val basicGroup = Group(
     Ellipse(50, 30),
     Rectangle(20, 40))

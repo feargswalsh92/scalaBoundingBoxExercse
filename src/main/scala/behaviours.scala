@@ -28,17 +28,35 @@ object behaviours {
     }
   }
 
+//  def multiply(s:Shape)(factor: Int): Int = {
+//    s * factor
+//  }
+  def scale(s:Shape,factor: Int): Shape = s match {
+
+    case Ellipse(min,maj) => Ellipse(min*factor,maj*factor)
+    case Rectangle(width,height) => Rectangle(width*factor,height*factor)
+    case Location(x,y,s) => {
+
+      val s1 = scale(s, factor)
+
+      Location(x * factor, y * factor, s1)
+    }
+    case _ => Ellipse(0,0)
+    //case Ellipse(min,maj) => //logic for multiplying rectangle by factor
+  }
+
   def size(s:Shape): Int = s match {
 
     case Rectangle(_,_) => 1
     case Ellipse(min,maj) => 1
     case Location(x,y,s) => size(s)
     case Group(shapes @_*) => {
-      val shapesList = shapes
+    //  val shapesList = shapes
      // print(shapesList)
-      shapesList.foldLeft(0)((a,s1) => size(s1)+a)
+      shapes.map(size).sum
+     // shapesList.foldLeft(0)((a,s1) => size(s1)+a)
     }
-//found foldLeft statement here : https://github.com/rickschmidt/shapes-scala/blob/master/src/edu/luc/cs/laufer/cs473/shapes/BoundingBox.scala#L58
+
 
 
   }
@@ -46,18 +64,22 @@ object behaviours {
   def height(s:Shape): Int = s match {
     case Rectangle(_, _) => 1
     case Ellipse(min, maj) => 1
-    case Location(x, y, s) => 1 + math.max(x,y)
+    case Location(x, y, s) => 1 + height(s)
 
     case Group(shapes @_*) => {
-    //  val shapesList = shapes
 
-      1+ math.max(height())
+
+     1 + shapes.map(height).max
+
+     // (s1 => math.max(height(s1)))
+//      h.asInstanceOf[Int]
       //logic
     }
-    case _ => 1
+
 
   }
-
+//map for Scale
+  //generally recommend to use
 //      val shapesList = shapes
 //      shapesList.foldLeft(0)((a,s1) => math.max()
 
