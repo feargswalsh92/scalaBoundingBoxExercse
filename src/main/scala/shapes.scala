@@ -23,6 +23,8 @@ case class Ellipse(minor: Int,major: Int) extends Shape {
 
 case class Group(shapes: Shape*) extends Shape
 {
+
+  //require(Shape != null,"null shape detected")
   //add validitiy checking
 }
 

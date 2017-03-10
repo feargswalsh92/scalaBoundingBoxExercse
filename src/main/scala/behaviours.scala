@@ -41,6 +41,13 @@ object behaviours {
 
       Location(x * factor, y * factor, s1)
     }
+    case Group(shapes @_*) => {
+      val retGroup = shapes.map(s1 => scale(s1,factor))
+      Group(retGroup: _*)
+      //retGroup.asInstanceOf[Shape]
+      //console
+      //c
+    }
     case _ => Ellipse(0,0)
     //case Ellipse(min,maj) => //logic for multiplying rectangle by factor
   }

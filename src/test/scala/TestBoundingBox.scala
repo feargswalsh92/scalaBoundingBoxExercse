@@ -53,7 +53,7 @@ class TestBoundingBox extends FunSuite {
   testScale("simple ellipse scaled",simpleEllipse,2,ellipseByTwo)
   testScale("simple rectangle scaled",simpleRectangle,2,simpleRectangleByTwo)
   testScale("simple location scaled",simpleLocation,2,simpleLocationByTwo)
-
+  testScale("simple group scaled",basicGroup,2,basicGroupByTwo)
 
   // DONE comment these tests back in
   //bounding box

@@ -23,6 +23,7 @@ object TestFixtures {
     Ellipse(50, 30),
     Rectangle(20, 40))
 
+  val basicGroupByTwo = Group(Ellipse(100,60),Rectangle(40,80))
 
   //
     val simpleGroup = Group(
