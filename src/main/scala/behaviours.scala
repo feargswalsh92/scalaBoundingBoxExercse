@@ -51,7 +51,7 @@ object behaviours {
     case _ => Ellipse(0,0)
     //case Ellipse(min,maj) => //logic for multiplying rectangle by factor
   }
-
+2a
   def size(s:Shape): Int = s match {
 
     case Rectangle(_,_) => 1
